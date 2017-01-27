@@ -1,11 +1,5 @@
 # --------------------------------------------------------
 # COMMANDS
-alias ls='ls --color=auto'
-alias ll='ls -l --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias rgrep='rgrep --color=auto'
 
 # --------------------------------------------------------
 # GIT
@@ -18,12 +12,8 @@ function gupd {
     gfet;gpul $@;
 }
 alias gpul='git pull origin'
-
 alias gche='git checkout'
-__git_complete gche _git_checkout
-
 alias gpus='git push origin'
-__git_complete gpus _git_checkout
 
 alias gdif='git diff'
 alias gadd='git add'
