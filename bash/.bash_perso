@@ -1,7 +1,25 @@
+execFile () {
+  if [ -e $2 ]; then
+    $1 $2
+  else
+    echo "$2 not found"
+  fi
+}
+
+commandExists () {
+  command -v "$1" > /dev/null 2>&1
+}
+
+execFile "source" "/Users/cjimenez/config/bash/.bash_aliases"
+execFile "source" "/Users/cjimenez/config/git-flow-completion/git-flow-completion.bash"
+execFile "source" "/Users/cjimenez/config/git-flow-completion/git-prompt.sh"
+execFile "." "/Users/cjimenez/tools/z/z.sh"
+
+if commandExists brew; then
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+fi
+
 # Customize command line
 PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '
-export PROMPT_COMMAND="echo -n \[\$(date +%H:%M:%S)\]\ "
-
-# Externals tools
-source /Users/cjimenez/tools/z/z.sh
-
