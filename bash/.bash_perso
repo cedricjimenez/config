@@ -10,10 +10,12 @@ commandExists () {
   command -v "$1" > /dev/null 2>&1
 }
 
-execFile "source" "/Users/cjimenez/config/bash/.bash_aliases"
-execFile "source" "/Users/cjimenez/config/git-flow-completion/git-flow-completion.bash"
-execFile "source" "/Users/cjimenez/config/git-flow-completion/git-prompt.sh"
-execFile "." "/Users/cjimenez/tools/z/z.sh"
+_Z_OWNER="cjimenez"
+
+execFile "source" "$HOME/config/bash/.bash_aliases"
+execFile "source" "$HOME/config/git-flow-completion/git-flow-completion.bash"
+execFile "source" "$HOME/config/git-flow-completion/git-prompt.sh"
+execFile "." "$HOME/tools/z/z.sh"
 
 if commandExists brew; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
